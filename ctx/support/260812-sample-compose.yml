@@ -1,0 +1,22 @@
+# sample only — illustrates spinning up multiple containers from one image,
+# each with its own volume, per ctx/prompt/260812-docker-dev-image-v2.md
+
+services:
+  dev-a:
+    build: ../..
+    image: ndm-dev-docker:latest
+    container_name: nirmal-dev-a
+    command: sleep infinity
+    volumes:
+      - dev-a-home:/home/nirmal
+
+  dev-b:
+    image: ndm-dev-docker:latest
+    container_name: nirmal-dev-b
+    command: sleep infinity
+    volumes:
+      - dev-b-home:/home/nirmal
+
+volumes:
+  dev-a-home:
+  dev-b-home:
