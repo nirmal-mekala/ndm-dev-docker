@@ -49,7 +49,6 @@ RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && brew install \
         fzf \
         fx \
         ripgrep \
-        fff \
         bat \
         moreutils \
         glow \
