@@ -44,7 +44,6 @@ RUN NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.co
 RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && brew install \
         fnm \
         eza \
-        neofetch \
         neovim \
         tmux \
         fzf \
