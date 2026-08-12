@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         procps \
         file \
         ca-certificates \
+        openssh-client \
     && rm -rf /var/lib/apt/lists/*
 
 # ---- "nirmal" user, no sudo ----
@@ -24,6 +25,12 @@ RUN mkdir -p /home/linuxbrew/.linuxbrew \
 USER nirmal
 WORKDIR /home/nirmal
 SHELL ["/bin/bash", "-c"]
+
+# ---- ssh client config ----
+# Home directory is expected to be mounted as a volume (persisting keys across
+# restarts), so this just seeds the expected layout/perms for the initial
+# volume population; it doesn't create any keys itself.
+RUN mkdir -p /home/nirmal/.ssh && chmod 700 /home/nirmal/.ssh
 
 # ---- dotfiles ----
 RUN git clone https://github.com/nirmal-mekala/dotfiles.git /home/nirmal/.dotfiles \
