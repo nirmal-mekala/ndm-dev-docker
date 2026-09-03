@@ -63,6 +63,8 @@ RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && brew install \
         gum \
         jq \
         luarocks \
+        less \
+        hunk \
     && echo 'eval "$(fnm env --use-on-cd)"' >> /home/nirmal/.localshrc
 
 # ---- node 24 + agents ----
